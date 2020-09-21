@@ -1,0 +1,147 @@
+
+.site-container > *{
+  width: 100%;
+
+}
+#site-header{
+  display: grid;
+  grid-template-areas:
+      "image title"
+      "image links"
+      "image text";
+  grid-template-rows: max-content max-content 1fr;
+  grid-template-columns: max-content 1fr;
+  margin-bottom: 4em;
+}
+.profile-image-container{
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 1em 2em 1em 1em;
+  grid-area: image;
+  align-items: flex-start;
+}
+
+.image-container-inner{
+  clip-path: circle(50%);
+  background-color: black;
+  --image-size: 10em;
+  height: var(--image-size);
+}
+.profile-image{
+  clip-path: circle(49%);
+  height: var(--image-size);
+  width: unset;
+  margin: unset;
+}
+.name-container{
+  margin: 1em 0;
+  grid-area: title;
+}
+.name-header{
+  font-size: 3em;
+  font-family: "Libre Baskerville";
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+
+.contact-links-container{
+  margin-bottom: 1em;
+  grid-area: links;
+}
+.contact-link-list{
+  list-style: none;
+  margin: 0;
+  line-height: inherit;
+}
+.contact-link-list li {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+
+.contact-link-list li:not(:last-child)::after{
+  content: "•";
+  margin: 0 1ch;
+}
+.description-container{
+  grid-area: text;
+  line-height: 1.2;
+  text-align: left;
+
+}
+.description-container p{
+  text-align: left;
+}
+
+.post-item{
+	margin-bottom: 2em;
+	line-height: 1.2;
+
+}
+.post-item * {
+  text-decoration: none;
+}
+.post-item:active{
+  background-color: black;
+  color: white;
+}
+.post-item:active h2, .post-item:active time, .post-item:active .abstract{
+  color: white;
+}
+@media (hover: hover){
+	.post-item a{
+		opacity: 1; } }
+.post-item h2{
+  margin-top: 0;
+	font-size: 1.5em;
+	font-weight: bold;
+  margin-bottom: 0.25em;
+}
+.post-item .abstract{
+  color: var(--grey);
+}
+.creation-date{
+	color: rgba(0,0,0,0.7);
+}
+.post-item header{
+	margin-bottom: 0.5em;
+}
+
+.site-content-inner{
+  display: flex;
+  flex-flow: column;
+}
+
+@media (max-width: 700px) {
+  #site-header{
+    grid-template-areas:
+        "image title"
+        "image links"
+        "text text";
+  }
+  .name-contaner{
+    margin: 1em 0 0.5em;
+  }
+  #site-header .profile-image-container{
+    margin-right: 1em;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-container-inner{
+    --image-size: 6em;
+
+  }
+  .description-container{
+    margin-top: 0.5em;
+    border-left: 0.25em solid rgba(0,0,0,0.2);
+    padding-left: 0.5em;
+  }
+}
+@media (max-width: 450px){
+  html{
+    font-size: 3.5vw;
+  }
+}

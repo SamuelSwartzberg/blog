@@ -1,0 +1,276 @@
+.site-container.times{
+  font-family: "Times New Roman", Times, serif;
+}
+.site-container.default{
+  font-family: inherit;
+}
+#site-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.tool-container > *{
+  color: var(--grey);
+	text-decoration: underline rgba(0,0,0,0.6);
+}
+.tool-container > a:active, .tool-container > a.active{
+  background-color: #fdec96;
+}
+.tool-container .offset{
+  color: rgba(0,0,0,0.45);
+}
+.tool-container .spellcheck{
+  text-decoration: underline solid #fc483e;
+}
+
+#post-header .info{
+  line-height: 1.5;
+}
+#post-header .abstract{
+  display: inline;
+  font-style: italic;
+  color: var(--grey); }
+#post-header .abstract:empty{
+  display: none;}
+
+#post-header{
+  margin-bottom: 2em; }
+
+#post-header h1{
+  margin-bottom: 0.5em; }
+
+.creation-date{
+  color: black;
+  font-style: normal;}
+
+.creation-date::before, .abstract:after{
+  content: "•";
+  margin: 0 1ch;
+  color: var(--grey); }
+
+.author:not(:last-child)::after{
+  content: ", ";
+}
+
+/* Table of contents */
+
+#table-of-contents{
+  max-width: 100%;
+  width: max-content;
+  margin: 1em 0;
+  border: var(--border-thickness) solid var(--light-grey);
+  background-color: var(--transparent-grey);
+}
+#table-of-contents:empty{
+  display: none;
+}
+#table-of-contents > ol{
+  margin: 1.5em 1em 1.5em 2em;
+}
+#table-of-contents a{
+  text-decoration: none;
+}
+#table-of-contents ol{
+  list-style-type: none;
+  line-height: 1;
+  counter-reset: section-counter 0;
+  margin-left: 2em;
+}
+#table-of-contents li{
+  counter-increment: section-counter;
+}
+#table-of-contents li::before{
+  content: counters(section-counter, ".");
+  margin-right: 1ch;
+}
+
+/* Main Article */
+
+#main-article li > p:last-child{
+	margin-bottom: 0; }
+#main-article p{
+  margin-bottom: 1em; }
+
+/* Citations */
+
+.ibid .citation-inner{
+  display: none;
+}
+html[lang="en"] .citation.ibid::after{
+  content: "ibid.";
+}
+html[lang="en"] .citation.ibid.nodot::after{
+  content: "ibid";
+}
+html[lang="en"] .citation.ibid.capitalize::after{
+  content: "Ibid.";
+}
+html[lang="en"] .citation.ibid.nodot::after{
+  content: "Ibid";
+}
+html[lang="de"] .citation.ibid::after{
+  content: "ebd.";
+}
+html[lang="de"] .citation.ibid.nodot::after{
+  content: "Ebd";
+}
+html[lang="de"] .citation.ibid::after{
+  content: "ebd.";
+}
+html[lang="de"] .citation.ibid.nodot::after{
+  content: "Ebd";
+}
+
+.highlight{
+  background-color: #fdec96;
+}
+
+html[lang="de"] .page-number::before{
+  content: ", s. "
+}
+html[lang="en"] .page-number::before{
+  content: ", p. "
+}
+
+/* Footnotes */
+
+.footnote{
+	vertical-align: super;
+  user-select: none;
+  font-size: 0.7em;
+	line-height: 0;
+	text-decoration: none;}
+
+.footnote-content::after{
+  content: ".";
+}
+
+/* Footnotes and Bibliography */
+
+.footnote-container, #bibliography-container{
+  margin-top: 3em;
+  border-top: var(--border-thickness) solid var(--light-grey);
+  padding-top: 1em;}
+
+.footnote-container ol, #bibliography-container ol{
+  margin-left: 0;
+  list-style-type: none;
+}
+.footnote-bottom .footnote::after{
+	content:" ";}
+html[lang="de"] .cf .footnote-content::before{
+  content: "Vgl. ";
+}
+html[lang="en"] .cf .footnote-content::before{
+  content: "Cf. ";
+}
+/* Bibliography */
+
+#bibliography-container div{
+  display: inline;
+}
+
+li:target{
+  width: auto; /* IE, earlier edge, weird mobile browsers */
+  width: moz-fit-content; /*FF*/
+  width: fit-content; /* All others*/
+	padding: 0 1ch;
+	background-color: rgba(0,0,0,0.1); }
+
+li:target .footnote{
+	padding-left: 2.5ch; }
+
+li:target:before{
+	margin-left: -3.5ch;
+	color: var(--grey);
+	content: ">"; }
+
+/* paged.js rules*/
+
+#main-article .footnote-bottom, .pagedjs_pages .footnote-bottom{ /* so we get these rules to apply before print styling takes effect*/
+  font-size: 10pt;
+  line-height: 1.2;
+  margin-bottom: 0.8em; /* It's impossible to find exactly the right distance, as this has to account for the hr, which is not relative to the amount of footnotes, and increasing the distance causes things to reflow, which might excarbate problems */
+  display: inline-block;
+  width:100%;
+  float: right;
+  page-break-inside: avoid;
+}
+.pagedjs_margin-bottom{
+  align-items: start;
+}
+[data-align-last-split-element='justify']{
+  text-align: auto;
+}
+
+
+@media screen {
+  .page-view{
+    background-color: var(--transparent-grey);
+  }
+  .pagedjs_page{
+    margin: 2em 0;
+    border: var(--border-thickness) solid var(--light-grey);
+  }
+}
+
+@media print{
+  html{
+    font-size: 4mm; }
+  #site-footer, #site-header{
+    display: none; }
+
+
+
+  @page{
+    size: A4;
+    margin: 20mm;
+    margin-bottom: 26mm;
+
+    @bottom-right {
+      color: var(--grey);
+      content: counter(page);
+      margin-top: 2em;
+    }
+  }
+  .site-container{
+    max-width: initial;
+    width: 100%;
+  }
+  #bibliography-container{
+    break-before: page;
+  }
+  [lang="de"] #bibliography-container::before{
+    content:"Literaturverzeichnis";
+  }
+  [lang="en"] #bibliography-container::before{
+    content:"Bibliography";
+  }
+  #bibliography-container::before{
+    display: block;
+    font-size:1.5em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    line-height: 1.2;}
+  h2,h3,h4{
+    break-after: avoid;
+  }
+  #bibliography-container{
+    margin-top: 0;
+    border-top: none;
+    padding-top: 0;}
+  #post-header + #main-article{
+    margin-top: 10.5em;
+  }
+  .footnote-area .footnote-bottom{
+    line-height: 1.2;
+    margin-bottom: 0.15em !important;
+  }
+  figure.center-long .image-container{
+    columns: 2;
+    max-height: calc(var(--pagedjs-pagebox-height) * 0.8);
+  }
+  figure{
+        break-inside: avoid-page;
+  }
+}

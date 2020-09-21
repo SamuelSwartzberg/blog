@@ -1,0 +1,10 @@
+.site-content-inner{
+  line-height: 1.5;
+}
+.legal-contact ul{
+  list-style-type: none;
+  margin: 0;
+}
+.legal-contact li{
+  margin-bottom: 0;
+}
