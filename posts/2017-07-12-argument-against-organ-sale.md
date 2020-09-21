@@ -1,4 +1,4 @@
-title|No one should have to sell their Organs
+title|No One Should Have to Sell Their Organs
 date|12.07.2017
 abstract|The prohibition of the sale of organs is good, but only due to the structural problems capitalism creates.
 arguments|noargs

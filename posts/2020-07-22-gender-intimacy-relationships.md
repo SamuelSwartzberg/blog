@@ -1,4 +1,4 @@
-title|The gender implications of cute girl anime (unfinished)
+title|The Gender Implications of Cute Girl Anime (unfinished)
 date|22.07.2020
 abstract|A personal reflection on how gender binds, and of wanting to be part of a cute girls doing cute things anime.
 arguments|noargs
