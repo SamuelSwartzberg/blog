@@ -9,7 +9,7 @@ let personDescription = document.querySelector(".person-description");
 
 /* Populate the <head> */
 
-documentTitle.innerHTML= `${firstName} ${lastName}'s Papers`;
+documentTitle.innerHTML= `${firstName} ${lastName}'s Blog`;
 metaDescription.content= description;
 
 /* Populate the index.html header
